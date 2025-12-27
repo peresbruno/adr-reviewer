@@ -1,31 +1,32 @@
-[build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
-
-[project]
+[tool.poetry]
 name = "adr-reviewer"
 version = "0.1.0"
 description = "A tool for reviewing ADRs"
-authors = [
-    {name = "Your Name", email = "your.email@example.com"},
-]
-dependencies = [
-    "requests>=2.31.0",
-    "python-dotenv>=1.0.0",
-]
-requires-python = ">=3.10"
+authors = ["Your Name <your.email@example.com>"]
+readme = "README.md"
+package-mode = false
 
-[project.optional-dependencies]
-dev = [
-    "black>=25.12.0",
-    "isort>=7.0.0",
-    "pylint>=4.0.4",
-    "pytest>=8.0.0",
-    "pytest-cov>=4.1.0",
-    "debugpy>=1.8.1",
-    "mypy>=1.19.1",
-    "pre-commit>=3.6.0",
-]
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.31.0"
+python-dotenv = "^1.0.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.12.0"
+isort = "^7.0.0"
+pylint = "^4.0.4"
+pytest = "^8.0.0"
+pytest-cov = "^4.1.0"
+debugpy = "^1.8.1"
+mypy = "^1.19.1"
+pre-commit = "^3.6.0"
+
+[tool.poetry.scripts]
+adr-reviewer = "src.main:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
 
 [tool.black]
 line-length = 88

@@ -29,7 +29,7 @@ RUN addgroup -g 1000 vscode && \
     chown -R vscode:vscode /home/vscode
 
 # Instalar ferramentas de desenvolvimento Python
-RUN pip install --upgrade pip setuptools wheel --break-system-packages
+# (Poetry será instalado via postCreateCommand)
 
 # Mudar para o usuário vscode
 USER vscode
