@@ -608,6 +608,21 @@ files = [
 ]
 
 [[package]]
+name = "mistune"
+version = "3.2.0"
+description = "A sane and fast Markdown parser with useful plugins and renderers"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "mistune-3.2.0-py3-none-any.whl", hash = "sha256:febdc629a3c78616b94393c6580551e0e34cc289987ec6c35ed3f4be42d0eee1"},
+    {file = "mistune-3.2.0.tar.gz", hash = "sha256:708487c8a8cdd99c9d90eb3ed4c3ed961246ff78ac82f03418f5183ab70e398a"},
+]
+
+[package.dependencies]
+typing-extensions = {version = "*", markers = "python_version < \"3.11\""}
+
+[[package]]
 name = "mypy"
 version = "1.19.1"
 description = "Optional static typing for Python"
@@ -1063,11 +1078,12 @@ version = "4.15.0"
 description = "Backported and Experimental Type Hints for Python 3.9+"
 optional = false
 python-versions = ">=3.9"
-groups = ["dev"]
+groups = ["main", "dev"]
 files = [
     {file = "typing_extensions-4.15.0-py3-none-any.whl", hash = "sha256:f0fa19c6845758ab08074a0cfa8b7aecb71c999ca73d62883bc25cc018c4e548"},
     {file = "typing_extensions-4.15.0.tar.gz", hash = "sha256:0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"},
 ]
+markers = {main = "python_version == \"3.10\""}
 
 [[package]]
 name = "urllib3"
@@ -1112,4 +1128,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "b8123134f7e97960e894c2e9630e034d18d7e54bfa8d99e430089f5c92e7c1f6"
+content-hash = "b2acc02fdcd93a4c521e984e634a49a6c5ad7b280ee6ba43182230856f83ae87"

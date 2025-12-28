@@ -12,13 +12,18 @@
         "ms-python.pylint",
         "ms-python.mypy-type-checker",
         "ms-python.debugpy",
-        "ms-vscode-remote.remote-containers"
+        "ms-vscode-remote.remote-containers",
+        "ms-python.vscode-pylance"
       ],
       "settings": {
         "terminal.integrated.shell.linux": "/bin/zsh"
       }
     }
   },
+    "runArgs": [
+    "--memory=6g",
+    "--cpus=4"
+  ],
   "mounts": [
     "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
   ],

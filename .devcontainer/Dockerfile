@@ -28,11 +28,11 @@ RUN addgroup -g 1000 vscode && \
     mkdir -p /home/vscode/.vscode-server && \
     chown -R vscode:vscode /home/vscode
 
-# Instalar ferramentas de desenvolvimento Python
-# (Poetry será instalado via postCreateCommand)
-
 # Mudar para o usuário vscode
 USER vscode
+
+# Instalar Poetry
+RUN curl -sSL https://install.python-poetry.org | python3 -
 
 # Instalar Oh My Zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -42,11 +42,13 @@ RUN git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTO
 
 # Configurar Zsh como shell padrão e tema
 RUN sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/g' ~/.zshrc && \
-    echo 'export PATH=$PATH:/home/vscode/.local/bin' >> ~/.zshrc
+    echo 'export PATH=$PATH:/home/vscode/.local/bin' >> ~/.zshrc && \
+    echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.profile && \
+    echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
 
 # Definir Zsh como shell padrão
 USER root
-RUN sed -i 's|/bin/ash|/bin/zsh|g' /etc/passwd
+RUN sed -i 's|/bin/sh|/bin/zsh|g' /etc/passwd
 USER vscode
 
 WORKDIR /workspace

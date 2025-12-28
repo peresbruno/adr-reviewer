@@ -2,12 +2,21 @@
     "python.defaultInterpreterPath": "./.venv/bin/python",
     "python.languageServer": "Pylance",
     "python.testing.pytestEnabled": true,
+    "python.analysis.extraPaths": ["${workspaceFolder}/src"],
     "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
             "source.organizeImports": "explicit"
         }
     },
-    "remote.autoForwardPortsFallback": 0
+    "remote.autoForwardPortsFallback": 0,
+    "files.watcherExclude": {
+        "**/.git/**": true,
+        "**/.venv/**": true,
+        "**/__pycache__/**": true,
+        "**/.mypy_cache/**": true,
+        "**/.ruff_cache/**": true,
+        "**/.pytest_cache/**": true,
+        "**/node_modules/**": true
+    }
 }

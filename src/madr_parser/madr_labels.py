@@ -1,0 +1,8 @@
+CONTEXT_LABEL = "Context and Problem Statement"
+CONSIDERED_OPTIONS_LABEL = "Considered Options"
+DECISION_OUTCOME_LABEL = "Decision Outcome"
+DECISION_DRIVERS_LABEL = "Decision Drivers"
+DECISION_CONSEQUENCES_LABEL = "Consequences"
+DECISION_CONFIRMATION_LABEL = "Confirmation"
+PROS_AND_CONS_LABEL = "Pros and Cons of the Options"
+MORE_INFO_LABEL = "More Information"
